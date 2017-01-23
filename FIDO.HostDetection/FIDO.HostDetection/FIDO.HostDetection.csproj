@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6BB12460-8DA1-4D2C-B3B5-542C0BCB6BCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FIDO.HostDetection</RootNamespace>
+    <AssemblyName>FIDO.HostDetection</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.4.0.1\lib\net451\RabbitMQ.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FIDO.Support\API.Endpoints\API_Endpoints.cs" />
+    <Compile Include="FIDO.Support\API.Endpoints\Object_API_Endpoints.cs" />
+    <Compile Include="FIDO.Support\ErrorHandling\Fido_Eventhandler.cs" />
+    <Compile Include="FIDO.Support\Event.Queue\EventQueue.cs" />
+    <Compile Include="FIDO.Support\Event.Queue\Object_Event_Queue.cs" />
+    <Compile Include="FIDO.Support\FidoDB\Fido_CouchDB.cs" />
+    <Compile Include="FIDO.Support\FidoDB\Object_Fido_Configs_CouchDB_App.cs" />
+    <Compile Include="FIDO.Support\FidoDB\Object_Fido_Configs_CouchDB_Whitelist.cs" />
+    <Compile Include="FIDO.Support\FidoDB\Object_Fido_LocalClass.cs" />
+    <Compile Include="FIDO.Support\GeoIP\GeoIpLookup.cs" />
+    <Compile Include="FIDO.Support\GeoIP\GeoIpObject.cs" />
+    <Compile Include="FIDO.Support\Hashing\Base64.cs" />
+    <Compile Include="FIDO.Support\Notification\Email_Send.cs" />
+    <Compile Include="FIDO.Support\Notification\Object_Fido_EmailServer_Configs.cs" />
+    <Compile Include="FIDO.Support\Notification\Object_Fido_Email_Configs.cs" />
+    <Compile Include="FIDO.Support\RabbitMQ\GetRabbit.cs" />
+    <Compile Include="FIDO.Support\RabbitMQ\GetRabbitEnum.cs" />
+    <Compile Include="FIDO.Support\RabbitMQ\Object_RabbitMQ.cs" />
+    <Compile Include="FIDO.Support\RabbitMQ\PostRabbit.cs" />
+    <Compile Include="FIDO.Support\Rest\Fido_Rest_Connection.cs" />
+    <Compile Include="FIDO.Support\Rest\Fido_Rest_Connection_Factory.cs" />
+    <Compile Include="FIDO.Support\Rest\Fido_Rest_Connection_Type.cs" />
+    <Compile Include="FIDO.Support\Sysmgmt\Enum_F5_VPN.cs" />
+    <Compile Include="FIDO.Support\Sysmgmt\Object_F5_VPN.cs" />
+    <Compile Include="FIDO.Support\Sysmgmt\Object_F5_VPN_Inventory.cs" />
+    <Compile Include="FIDO.Support\Sysmgmt\Object_F5_VPN_Search.cs" />
+    <Compile Include="FIDO.Support\Sysmgmt\SysMgmt_ElasticSearch.cs" />
+    <Compile Include="FIDO.Support\Sysmgmt\VPN_F5.cs" />
+    <Compile Include="Object_DDI_SolidServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializeJson.cs" />
+    <Compile Include="SysMgmt_DDI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
